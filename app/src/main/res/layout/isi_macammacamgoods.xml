@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/bold"
-            android:text="@string/HomeMenuTitle"
+            android:text="@string/language"
             android:textColor="#000000"
             android:textSize="27sp"
             app:layout_constraintEnd_toEndOf="@id/materialCardView"
@@ -52,15 +52,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/materialCardView">
 
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:text="@string/daftarSembako"
+            android:text="@string/daftarBarang"
             android:fontFamily="@font/regular"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:padding="6dp" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -75,12 +75,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView1" />
 
-
-    <Button
-        android:id="@+id/goodsCategoryInputButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialCardView1"
-        app:layout_constraintEnd_toEndOf="@+id/materialCardView1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

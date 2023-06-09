@@ -1,6 +1,13 @@
-<resources>
-    <string name="app_name">Tubes coba coba</string>
-    <string name="splash_screen">The Goodies That Comes In Equals The Goodies That Comes Out</string>
-    <string name="goods_name">Goods</string>
-    <string name="cashier_name">Cashier</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">ShopGistic</string>
+    <string name="language">Beras dan Bahan</string>
+    <string name="daftarlist1" tools:ignore="Typos">isiList1</string>
+    <string name="HomeMenuTitle">Home</string>
+    <string name="daftarSembako">Daftar Sembako</string>
+    <string name="daftarBarang">Daftar Barang</string>
+    <string name="input_namaproduk">Nama Produk</string>
+    <string name="input_jumlahproduk">Jumlah</string>
+    <string name="input_hargaproduk">Harga Produk</string>
+    <string name="TambahProduk">Tambahkan Produk</string>
+    <string name="input_namakategoriproduk">Nama Kategori Produk</string>
 </resources>

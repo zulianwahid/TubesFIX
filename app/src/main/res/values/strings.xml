@@ -10,4 +10,7 @@
     <string name="input_hargaproduk">Harga Produk</string>
     <string name="TambahProduk">Tambahkan Produk</string>
     <string name="input_namakategoriproduk">Nama Kategori Produk</string>
+    <string name="splash_screen">The Goodies That Comes In Equals The Goodies That Comes Out</string>
+    <string name="goods_name">Goods</string>
+    <string name="cashier_name">Cashier</string>
 </resources>

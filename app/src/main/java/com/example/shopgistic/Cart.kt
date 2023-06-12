@@ -1,4 +1,4 @@
-package com.example.tubescobacoba
+package com.example.shopgistic
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -36,8 +36,13 @@ class Cart : AppCompatActivity() {
         buttonCheckout.setOnClickListener {
             performCheckout()
         }
-    }
 
+        val selectedProduct = intent.getSerializableExtra("selectedProduct") as? IsiListDetailProduk
+        if (selectedProduct != null) {
+            cartItems.add(selectedProduct.title) // Add the title of the selected product
+            adapter.notifyDataSetChanged()
+        }
+    }
     private fun performCheckout() {
         // Perform checkout logic here
         Toast.makeText(this, "Checkout successful!", Toast.LENGTH_SHORT).show()

@@ -1,4 +1,4 @@
-package com.example.tubescobacoba
+package com.example.shopgistic
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

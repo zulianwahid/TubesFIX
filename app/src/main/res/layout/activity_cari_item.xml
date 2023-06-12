@@ -40,13 +40,14 @@
 
         <EditText
             android:id="@+id/quantityEditText"
-            android:layout_width="1dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Enter Quantity"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:autofillHints="Masukan ini" />
 
         <Button
             android:id="@+id/addToCartButton"
@@ -56,6 +57,18 @@
             tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/textViewItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

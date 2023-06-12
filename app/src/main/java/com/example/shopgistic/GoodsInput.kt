@@ -1,6 +1,7 @@
 package com.example.shopgistic
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -17,15 +18,16 @@ import com.bumptech.glide.request.RequestOptions
 
 class GoodsInput : AppCompatActivity() {
 
-    private lateinit var editTextInputKategoriProduk: EditText
+    private lateinit var editTextProduct: EditText
+    private lateinit var editTextWeight: EditText
+    private lateinit var editTextPrice: EditText
     private lateinit var buttonTambahProduk: Button
     private lateinit var imageView: ImageView
 
     private var selectedImageUri: Uri? = null
 
     private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-                isGranted ->
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted)
                 openImagePicker()
         }
@@ -35,7 +37,7 @@ class GoodsInput : AppCompatActivity() {
             uri?.let {
                 selectedImageUri = it
                 imageView.setImageURI(it)
-                Log.d("GoodsInput","Selected Image URI: $selectedImageUri")
+                Log.d("GoodsInput", "Selected Image URI: $selectedImageUri")
             }
         }
 
@@ -43,33 +45,54 @@ class GoodsInput : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.inputkategoriproduk)
+        setContentView(R.layout.inputtiap2produk)
 
         //init view2 yang diperlukan
-        editTextInputKategoriProduk = findViewById(R.id.editTextInputKategoriProduk)
+        editTextProduct = findViewById(R.id.editTextName)
+        editTextWeight = findViewById(R.id.editTextWeight)
+        editTextPrice = findViewById(R.id.editTextPrice)
         buttonTambahProduk = findViewById(R.id.button3)
-        imageView = findViewById(R.id.inputGambar)
+        imageView = findViewById(R.id.editImageView)
 
         //click listener untuk button doang
         buttonTambahProduk.setOnClickListener {
-            val userInput = editTextInputKategoriProduk.text.toString()
-            performActionWithUserInput(userInput)
+            val title = editTextProduct.text.toString()
+            val weight = editTextWeight.text.toString().toFloatOrNull() ?: 0f
+            val price = editTextPrice.text.toString().toFloatOrNull() ?: 0f
+            val categoryId = 1
+            performActionWithUserInput(title, weight, price, categoryId)
         }
 
-        //click listener untuk input gamber
-        imageView.setOnClickListener{
+        //click listener untuk input gambar
+        imageView.setOnClickListener {
             requestImagePickerPermission()
         }
     }
 
-    private fun performActionWithUserInput(userInput: String?) {
-        val userInputString = userInput ?: ""
+    private fun performActionWithUserInput(title: String, weight: Float, price: Float, categoryId: Int) {
         val pictureUriString = selectedImageUri?.toString()
 
+        // Insert the product into the database
+        val dbHelper = DatabaseHelper(this)
+        val db = dbHelper.writableDatabase
+
+        val values = ContentValues().apply {
+            put(DatabaseContract.ProductTable.COLUMN_PRODUCT_NAME, title)
+            put(DatabaseContract.ProductTable.COLUMN_PRODUCT_WEIGHT, weight)
+            put(DatabaseContract.ProductTable.COLUMN_PRODUCT_PRICE, price)
+            put(DatabaseContract.ProductTable.COLUMN_PRODUCT_LOGO, pictureUriString)
+            put(DatabaseContract.ProductTable.COLUMN_CATEGORY_ID, categoryId)
+        }
+
+        val newRowId = db.insert(DatabaseContract.ProductTable.TABLE_NAME, null, values)
+
+        db.close()
 
         val resultIntent = Intent()
-        resultIntent.putExtra("userInput", userInputString)
+        resultIntent.putExtra("userInput", title)
         resultIntent.putExtra("pictureUri", pictureUriString)
+        resultIntent.putExtra("weight", weight)
+        resultIntent.putExtra("price", price)
 
         setResult(RESULT_OK, resultIntent)
         finish()

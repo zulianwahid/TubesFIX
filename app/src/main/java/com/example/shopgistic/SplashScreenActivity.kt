@@ -1,4 +1,4 @@
-package com.example.tubescobacoba
+package com.example.shopgistic
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val handler = Handler()
         handler.postDelayed({
             val intent = Intent(this@SplashScreenActivity,
-                MainActivity::class.java)
+                MenuAwal::class.java)
             startActivity(intent)
             finish()
         },5000)

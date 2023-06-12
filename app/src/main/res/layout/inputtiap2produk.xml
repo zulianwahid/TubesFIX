@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/myImageView"
+            android:id="@+id/editImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/kamera"
@@ -26,7 +26,7 @@
     </androidx.cardview.widget.CardView>
 
     <EditText
-        android:id="@+id/namaProduk"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/input_namaproduk"
@@ -39,7 +39,7 @@
         tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
-        android:id="@+id/jumlahProduk"
+        android:id="@+id/editTextWeight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/input_jumlahproduk"
@@ -47,12 +47,12 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/namaProduk"
+        app:layout_constraintTop_toBottomOf="@id/editTextName"
         android:autofillHints=""
-        tools:ignore="VisualLintTextFieldSize" />
+        tools:ignore="TextFields,VisualLintTextFieldSize" />
 
     <EditText
-        android:id="@+id/hargaProduk"
+        android:id="@+id/editTextPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/input_hargaproduk"
@@ -60,7 +60,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/jumlahProduk"
+        app:layout_constraintTop_toBottomOf="@id/editTextWeight"
         android:autofillHints=""
         tools:ignore="VisualLintTextFieldSize" />
 
@@ -72,6 +72,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hargaProduk" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

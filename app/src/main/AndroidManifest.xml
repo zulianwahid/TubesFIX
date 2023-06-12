@@ -16,7 +16,21 @@
         android:theme="@style/Theme.ShopGistic"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".MenuAwal"
+            android:exported="false">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".IsiGoodsActivity"></activity>
+        <activity android:name=".GoodsInput"></activity>
+        <activity android:name=".Cart" />
+        <activity android:name=".CariItem"/>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".IsiGoodsActivity"></activity>
-        <activity android:name=".GoodsInput"></activity>
 
     </application>
 
